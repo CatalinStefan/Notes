@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/notes_navigation"
+            app:startDestination="@id/homeFragment">
+
+    <fragment
+            android:id="@+id/homeFragment"
+            android:name="com.devtides.notes.ui.HomeFragment"
+            android:label="fragment_home"
+            tools:layout="@layout/fragment_home">
+        <action
+                android:id="@+id/actionAddNote"
+                app:destination="@id/addNoteFragment"/>
+    </fragment>
+    <fragment
+            android:id="@+id/addNoteFragment"
+            android:name="com.devtides.notes.ui.AddNoteFragment"
+            android:label="fragment_add_note"
+            tools:layout="@layout/fragment_add_note">
+        <action
+                android:id="@+id/actionSaveNote"
+                app:destination="@id/homeFragment"/>
+        <argument android:name="note"
+                app:nullable="true"
+                android:defaultValue="@null"
+                app:argType="com.devtides.notes.room.Note"/>
+    </fragment>
+</navigation>

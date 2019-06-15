@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+                name="note"
+                type="com.devtides.notes.room.Note"/>
+        <variable
+                name="listener"
+                type="com.devtides.notes.ui.NoteClickListener"/>
+    </data>
+
+    <androidx.cardview.widget.CardView
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{listener::onNoteClicked}"
+            android:layout_margin="4dp">
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/idTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(note.id)}"
+
+                    android:visibility="gone"/>
+
+            <TextView
+                    android:id="@+id/titleTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@{note.title}"
+                    style="@style/TextAppearance.AppCompat.Large"/>
+
+            <TextView
+                    android:id="@+id/bodyTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{note.body}"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
